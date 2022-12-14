@@ -18,6 +18,7 @@ public class UserService {
         newUser.setUsername(user.getUsername());
         newUser.setActive(true);
         newUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        newUser.setAuthorities("ROLE_ADMIN");
         userRepository.save(newUser);
     }
 }

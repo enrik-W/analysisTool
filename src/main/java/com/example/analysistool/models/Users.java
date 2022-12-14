@@ -14,6 +14,8 @@ public class Users {
     private String username;
     @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private String authorities;
     private boolean isActive;
 
     public long getId() {
@@ -46,5 +48,13 @@ public class Users {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public String getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
     }
 }
