@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DatabaseUserDetailsService implements UserDetailsService {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
@@ -23,9 +23,9 @@ public class DatabaseUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
 
-        List<SimpleGrantedAuthority> grantedAuthorities = new ArrayList<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority(user.getAuthorities()));
+        Set<SimpleGrantedAuthority> grantedAuthoritySet = new HashSet<>();
+        grantedAuthoritySet.add(new SimpleGrantedAuthority(user.getAuthorities()));
 
-        return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
+        return new User(user.getUsername(), user.getPassword(), grantedAuthoritySet);
     }
 }

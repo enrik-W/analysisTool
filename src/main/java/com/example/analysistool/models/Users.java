@@ -16,7 +16,6 @@ public class Users {
     private String password;
     @Column(nullable = false)
     private String authorities;
-    private boolean isActive;
 
     public long getId() {
         return id;
@@ -40,14 +39,6 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
     }
 
     public String getAuthorities() {

@@ -21,14 +21,12 @@ public class TestController {
         Users admin = new Users();
         admin.setUsername("admin");
         admin.setAuthorities("ROLE_ADMIN");
-        admin.setActive(true);
         admin.setPassword(bCryptPasswordEncoder.encode("admin"));
         userRepository.save(admin);
 
         Users user = new Users();
         user.setUsername("user");
         user.setAuthorities("ROLE_USER");
-        user.setActive(true);
         user.setPassword(bCryptPasswordEncoder.encode("user"));
         userRepository.save(user);
     }
