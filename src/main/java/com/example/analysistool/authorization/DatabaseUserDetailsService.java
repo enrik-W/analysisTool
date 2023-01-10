@@ -1,5 +1,6 @@
 package com.example.analysistool.authorization;
 
+import com.example.analysistool.models.Role;
 import com.example.analysistool.models.Users;
 import com.example.analysistool.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,11 @@ public class DatabaseUserDetailsService implements UserDetailsService {
         }
 
         Set<SimpleGrantedAuthority> grantedAuthoritySet = new HashSet<>();
-        grantedAuthoritySet.add(new SimpleGrantedAuthority(user.getAuthorities()));
+        Set<Role> userRoles = user.getRoles();
+
+        for (Role role : userRoles) {
+            grantedAuthoritySet.add(new SimpleGrantedAuthority(role.getRoleName()));
+        }
 
         return new User(user.getUsername(), user.getPassword(), grantedAuthoritySet);
     }

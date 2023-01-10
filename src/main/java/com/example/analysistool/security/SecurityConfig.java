@@ -17,15 +17,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/admin").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/register", "/user/register", "/newUser", "/create").permitAll()
+                        .requestMatchers("/admin").hasAuthority("ROLE_SYSTEM_ADMIN")
+                        .requestMatchers("/register", "/user/register", "/newUser", "/create", "/roles/create").permitAll()
                         .anyRequest().authenticated()
-                )
-                .formLogin((form) -> form
+                );
+               /* .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll()
                 )
-                .logout(LogoutConfigurer::permitAll);
+                .logout(LogoutConfigurer::permitAll); */
 
         return http.build();
     }
