@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@RequestMapping()
 public class TestController {
     @Autowired
     private UserRepository userRepository;
