@@ -17,12 +17,5 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/register")
-    public String addUser(@ModelAttribute Users user) throws Exception {
-        if (userRepository.findByUsername(user.getUsername()) != null) {
-            throw new Exception();
-        }
-        userService.registerUser(user);
-        return "newUser";
-    }
+
 }

@@ -32,7 +32,7 @@ public class TestController {
     }
 
     @RequestMapping("/admin")
-    public @ResponseBody String adminStuff() {
+    public String adminStuff() {
         return "Secret admin things";
     }
 }

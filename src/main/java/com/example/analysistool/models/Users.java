@@ -1,9 +1,8 @@
 package com.example.analysistool.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Users {
@@ -16,6 +15,8 @@ public class Users {
     private String password;
     @Column(nullable = false)
     private String authorities;
+    @ManyToMany
+    private Set<Role> roles;
 
     public long getId() {
         return id;
@@ -47,5 +48,13 @@ public class Users {
 
     public void setAuthorities(String authorities) {
         this.authorities = authorities;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
