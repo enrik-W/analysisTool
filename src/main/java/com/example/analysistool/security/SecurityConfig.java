@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/admin").hasAuthority("ROLE_SYSTEM_ADMIN")
-                        .requestMatchers("/register", "/user/register", "/newUser", "/create", "/roles/create").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 );
                /* .formLogin((form) -> form
