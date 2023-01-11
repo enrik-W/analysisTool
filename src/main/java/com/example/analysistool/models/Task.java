@@ -21,7 +21,7 @@ public class Task {
     @ManyToOne
     @JoinColumn
     private Users reviewer;
-    private LocalDateTime timestamp;
+    private LocalDateTime entryTime;
 
     public long getId() {
         return id;
@@ -79,11 +79,11 @@ public class Task {
         this.reviewer = reviewer;
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
+    public LocalDateTime getEntryTime() {
+        return entryTime;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    public void setEntryTime(LocalDateTime entryTime) {
+        this.entryTime = entryTime;
     }
 }
