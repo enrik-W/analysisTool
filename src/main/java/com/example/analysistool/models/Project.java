@@ -8,15 +8,15 @@ import jakarta.persistence.Id;
 public class Project {
     @Id
     @GeneratedValue
-    private long projectId;
+    private long id;
     private String projectName;
 
-    public long getProjectId() {
-        return projectId;
+    public long getId() {
+        return id;
     }
 
-    public void setProjectId(long projectId) {
-        this.projectId = projectId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getProjectName() {

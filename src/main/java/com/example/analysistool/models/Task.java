@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Task {
     @Id
     @GeneratedValue
-    private long taskId;
+    private long id;
     @ManyToOne
     @JoinColumn
     private Project project;
@@ -23,12 +23,12 @@ public class Task {
     private Users reviewer;
     private LocalDateTime timestamp;
 
-    public long getTaskId() {
-        return taskId;
+    public long getId() {
+        return id;
     }
 
-    public void setTaskId(long taskId) {
-        this.taskId = taskId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Project getProject() {
