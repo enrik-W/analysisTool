@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "roles")
 public class Role {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
     @Column(unique = true)
     private String roleName;

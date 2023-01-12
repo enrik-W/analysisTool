@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity
 public class Users {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
     @Column(nullable = false, unique = true)
     private String username;
