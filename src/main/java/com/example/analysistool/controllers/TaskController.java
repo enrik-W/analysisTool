@@ -20,7 +20,7 @@ public class TaskController {
         taskRepository.save(task);
     }
 
-    @RequestMapping("/getTasks/{projectId}")
+    @GetMapping("/getTasks/{projectId}")
     public List<Task> getTasks(@PathVariable long projectId) {
         return taskRepository.getAllByProjectId(projectId);
     }

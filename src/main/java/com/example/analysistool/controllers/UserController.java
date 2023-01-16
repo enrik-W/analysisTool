@@ -8,10 +8,7 @@ import com.example.analysistool.roles.Roles;
 import com.example.analysistool.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -29,7 +26,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/all")
+    @GetMapping("/all")
     public List<Users> allUsers() {
         return userRepository.findAll();
     }

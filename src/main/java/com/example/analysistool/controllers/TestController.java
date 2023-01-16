@@ -7,6 +7,7 @@ import com.example.analysistool.repositories.UserRepository;
 import com.example.analysistool.roles.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class TestController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @RequestMapping("/create")
+    @GetMapping("/create")
     public void createUsers() {
         Users admin = new Users();
         admin.setUsername("admin");
