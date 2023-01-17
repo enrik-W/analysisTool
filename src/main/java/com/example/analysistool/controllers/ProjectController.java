@@ -1,7 +1,7 @@
 package com.example.analysistool.controllers;
 
 import com.example.analysistool.models.Project;
-import com.example.analysistool.repositories.ProjectRepository;
+import com.example.analysistool.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,17 +13,17 @@ import java.util.List;
 @RequestMapping("project")
 public class ProjectController {
     @Autowired
-    private ProjectRepository projectRepository;
+    private ProjectService projectService;
 
     @GetMapping("/all")
     public ResponseEntity<List<Project>> getAllProjects() {
-        List<Project> projects = projectRepository.findAll();
+        List<Project> projects = projectService.getAllProjects();
         return new ResponseEntity<>(projects, HttpStatus.OK);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Project> addProject(@RequestBody Project project) {
-        projectRepository.save(project);
-        return new ResponseEntity<>(project, HttpStatus.CREATED);
+    public ResponseEntity<String> addProject(@RequestBody Project project) {
+        projectService.createProject(project);
+        return new ResponseEntity<>("Project created", HttpStatus.CREATED);
     }
 }
